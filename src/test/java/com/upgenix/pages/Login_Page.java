@@ -21,4 +21,17 @@ public class Login_Page {
     @FindBy(xpath = "//button[@class='btn btn-primary']")
     public WebElement logInBtn;
 
+    @FindBy(xpath = "//p[@class='alert alert-danger']")
+    public WebElement wrongLoginPasswordMsg;
+
+    @FindBy(className = "field-password")
+    public WebElement field;
+
+    @FindBy(linkText = "Reset Password")
+    public WebElement resetPasswordLink;
+
+    @FindBy(xpath = "//input[@type='password']")
+    public WebElement bulletPasswordVerify;
+
+
 }
