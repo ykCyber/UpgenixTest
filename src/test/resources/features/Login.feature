@@ -54,6 +54,7 @@ Feature: Upgenix login feature
       |                         | salesmanager |
       | posmanager70@info.com   |              |
       | salesmanager90@info.com |              |
+      |                         |              |
 
   @BRT-302
   Scenario: Verify that users land on the 'reset password' page after clicking on the "Reset password" link
