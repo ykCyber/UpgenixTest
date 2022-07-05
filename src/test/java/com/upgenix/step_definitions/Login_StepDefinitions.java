@@ -57,20 +57,20 @@ public class Login_StepDefinitions {
 
     @When("user enters {string} or {string}")
     public void user_enters_username_or_password_is_empty(String username, String password) {
-        login_page.usernameInputBox.sendKeys(username + Keys.TAB);
-        login_page.passwordInputBox.sendKeys(password + Keys.TAB);
+        login_page.usernameInputBox.sendKeys(username);
+        login_page.passwordInputBox.sendKeys(password);
         login_page.logInBtn.click();
 
 
     }
 
     @Then("user should see {string} message is displayed")
-    public void user_should_see_message_is_displayed(String string) {
+    public void user_should_see_message_is_displayed(String message) {
         String message1 = login_page.usernameInputBox.getAttribute("validationMessage");
         String message2 = login_page.passwordInputBox.getAttribute("validationMessage");
         System.out.println(message1);
         System.out.println(message2);
-        Assert.assertTrue(message1.equals(string) || message2.equals(string));
+        Assert.assertTrue(message1.equals(message) || message2.equals(message));
     }
 
     @When("user clicks {string} link")
