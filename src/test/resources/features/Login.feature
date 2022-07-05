@@ -41,11 +41,11 @@ Feature: Upgenix login feature
 
   @BRT-287
   Scenario Outline: Verify that "Please fill out this field" message should be displayed if the password or username is empty
-  Negative login scenario for empty username and valid password
+  Negative login scenario for empty username and empty password
 
     When user enters "<Username>" or "<Password>"
     And user clicks to "login" button
-    Then error message is displayed
+    Then user should see "Please fill in this field." message is displayed
 
     Examples:
 
