@@ -35,7 +35,7 @@ public class Login_StepDefinitions {
     public void user_should_see_the_title_is(String expectedTitle) {
 
         Assert.assertEquals(Driver.getDriver().getTitle(), expectedTitle);
-        Assert.assertEquals(Driver.getDriver().getTitle(), expectedTitle);
+
     }
 
 //
@@ -56,7 +56,7 @@ public class Login_StepDefinitions {
     //
 
     @When("user enters {string} or {string}")
-    public void user_enters_username_or_password(String username, String password) {
+    public void user_enters_username_or_password_is_empty(String username, String password) {
         login_page.usernameInputBox.sendKeys(username + Keys.TAB);
         login_page.passwordInputBox.sendKeys(password + Keys.TAB);
         login_page.logInBtn.click();
@@ -64,15 +64,14 @@ public class Login_StepDefinitions {
 
     }
 
-    @Then("error message is displayed")
-    public void error_message_is_displayed() {
-
-
-        String message = login_page.usernameInputBox.getAttribute("required");
-        Assert.assertEquals("true", message);
+    @Then("user should see {string} message is displayed")
+    public void user_should_see_message_is_displayed(String string) {
+        String message1 = login_page.usernameInputBox.getAttribute("validationMessage");
+        String message2 = login_page.passwordInputBox.getAttribute("validationMessage");
+        System.out.println(message1);
+        System.out.println(message2);
+        Assert.assertTrue(message1.equals(string) || message2.equals(string));
     }
-
-    //
 
     @When("user clicks {string} link")
     public void user_clicks_link(String link) {
