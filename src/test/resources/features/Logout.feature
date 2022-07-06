@@ -18,6 +18,6 @@ Feature: Upgenix logout feature
 		When user clicks to "profile" icon
 		And user clicks to "logout" dropdown
 		And user should see the title is "Login | Best solution for startups"
-		And user clicks to "step back" button
-		Then user should see "Odoo Session Expired" message displayed
+		And user clicks to step back button
+		Then user should see "Odoo Session Expired" displayed
 
