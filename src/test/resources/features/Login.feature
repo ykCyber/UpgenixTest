@@ -1,3 +1,4 @@
+@wip
 Feature: Upgenix login feature
   User Story:
   As a user, I should be able to log in to different accounts; so that I can land on homepage.
@@ -41,7 +42,7 @@ Feature: Upgenix login feature
 
   @BRT-287
   Scenario Outline: Verify that "Please fill out this field" message should be displayed if the password or username is empty
-  Negative login scenario for empty username and empty password
+  Negative login scenario for empty credentials
 
     When user enters "<Username>" or "<Password>"
     And user clicks to "login" button
