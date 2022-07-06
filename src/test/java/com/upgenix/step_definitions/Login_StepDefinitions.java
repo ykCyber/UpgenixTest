@@ -26,19 +26,17 @@ public class Login_StepDefinitions {
     }
 
     @When("user clicks to {string} button")
-    public void user_clicks_to_button(String loginBtn) {
+    public void user_clicks_to_login_button(String loginBtn) {
         login_page.logInBtn.click();
         BrowserUtils.sleep(2);
     }
 
     @Then("user should see the title is {string}")
-    public void user_should_see_the_title_is(String expectedTitle) {
+    public void user_should_see_the_title_is_expected_title(String expectedTitle) {
 
         Assert.assertEquals(Driver.getDriver().getTitle(), expectedTitle);
 
     }
-
-//
 
     @When("user enters {string} and {string}")
     public void user_enters_username_and_password(String username, String password) {
@@ -53,7 +51,6 @@ public class Login_StepDefinitions {
 
     }
 
-    //
 
     @When("user enters {string} or {string}")
     public void user_enters_username_or_password_is_empty(String username, String password) {
@@ -64,22 +61,26 @@ public class Login_StepDefinitions {
 
     }
 
-    @Then("user should see {string} message is displayed")
-    public void user_should_see_message_is_displayed(String message) {
-        String message1 = login_page.usernameInputBox.getAttribute("validationMessage");
-        String message2 = login_page.passwordInputBox.getAttribute("validationMessage");
-        System.out.println(message1);
-        System.out.println(message2);
-        Assert.assertTrue(message1.equals(message) || message2.equals(message));
+    @Then("user should see {string} validation message displayed")
+    public void user_should_see__verification_message_is_displayed(String expectedValidationMessage) {
+
+        String usernameRequiredAttribute = login_page.usernameInputBox.getAttribute("required");
+        String passwordRequiredAttribute = login_page.passwordInputBox.getAttribute("required");
+        Assert.assertEquals("true", usernameRequiredAttribute);
+        Assert.assertEquals("true", passwordRequiredAttribute);
+
+        String usernameInputBoxValidationMessage = login_page.usernameInputBox.getAttribute("validationMessage");
+        String passwordInputBoxValidationMessage = login_page.passwordInputBox.getAttribute("validationMessage");
+        System.out.println(usernameInputBoxValidationMessage);
+        System.out.println(passwordInputBoxValidationMessage);
+        Assert.assertTrue(usernameInputBoxValidationMessage.equals(expectedValidationMessage) || passwordInputBoxValidationMessage.equals(expectedValidationMessage));
     }
 
     @When("user clicks {string} link")
-    public void user_clicks_link(String link) {
+    public void user_clicks_link(String resetPasswordLink) {
         login_page.resetPasswordLink.click();
 
     }
-
-    //
 
     @When("user enters password, user should see the password in bullet signs by default")
     public void user_enters_password_user_should_see_the_password_in_bullet_signs_by_default() {
