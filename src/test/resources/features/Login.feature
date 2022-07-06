@@ -45,7 +45,7 @@ Feature: Upgenix login feature
 
     When user enters "<Username>" or "<Password>"
     And user clicks to "login" button
-    Then user should see "Please fill in this field." message is displayed
+    Then user should see "Please fill in this field." validation message displayed
 
     Examples:
 
